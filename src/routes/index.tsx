@@ -27,7 +27,7 @@ function Home() {
       <section className="relative flex min-h-screen items-end overflow-hidden bg-ink">
         <img src={images.hero} alt="Luxury living room with green velvet sofa, marble centre table and walnut TV console" width={1920} height={1088} className="animate-slowzoom absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-ink/40" />
-        <div className="relative mx-auto w-full max-w-7xl px-6 pb-24 md:px-10">
+        <div className="relative mx-auto w-full max-w-7xl px-6 pb-24 pt-36 md:px-10">
           <p className="eyebrow text-gold">Interior Design · Furniture · Accra</p>
           <h1 className="mt-6 max-w-5xl text-5xl leading-[0.98] text-ivory sm:text-7xl lg:text-8xl">
             <span className="block overflow-hidden"><span className="animate-rise block">Where elegance meets</span></span>
