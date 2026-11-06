@@ -1,14 +1,20 @@
-# Welcome to your Lovable project
+# Project Compass Room
+
+Project Dashboard is an application for viewing and managing project information.
+
+The project name indicates a dashboard focused on projects. No specific features or use cases are provided. It is built with TanStack Start and TypeScript.
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://project-compass-room.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/3cc67ad7-128e-42b8-b454-87d86b29b3d0).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +26,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
