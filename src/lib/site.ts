@@ -15,7 +15,7 @@ export const CONTACT = {
   whatsapp: null as string | null,
   phone: null as string | null,
   email: null as string | null,
-  location: "Accra, Ghana",
+  location: "11 Golden Street, Accra, Ghana",
 };
 
 export function whatsappLink(message: string) {
