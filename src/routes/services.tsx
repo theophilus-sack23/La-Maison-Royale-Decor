@@ -39,11 +39,11 @@ function Services() {
                 <div className="flex flex-wrap items-end justify-between gap-4">
                   <div>
                     <p className="eyebrow text-gold">See it in motion</p>
-                    <h3 className="mt-3 text-3xl md:text-4xl">Films from our recent installations</h3>
+                    <h3 className="mt-3 text-3xl md:text-4xl">{s.films.length > 1 ? "Films from our recent installations" : "A film from a recent project"}</h3>
                   </div>
                   <Link to="/gallery" className="eyebrow border-b border-foreground pb-1 hover:text-primary">View all projects</Link>
                 </div>
-                <div className="-mx-6 mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:grid-cols-4 md:overflow-visible md:px-0">
+                <div className={`-mx-6 mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:overflow-visible md:px-0 ${s.films.length >= 4 ? "md:grid-cols-4" : "md:grid-cols-3"}`}>
                   {s.films.map((f) => (
                     <FilmCard key={f.src} film={f} className="w-[70vw] max-w-xs shrink-0 snap-start md:w-auto md:max-w-none" />
                   ))}

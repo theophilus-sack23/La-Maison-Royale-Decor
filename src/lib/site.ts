@@ -53,11 +53,11 @@ export const homeLoop = { src: "/videos/marble-showcase-loop.mp4", poster: "/vid
 
 export const services: { slug: string; title: string; img: string; realPhoto?: boolean; films?: Film[]; text: string }[] = [
   { slug: "interior", title: "Interior Design & Space Transformation", img: hero, text: "Complete concepts that reshape how a room looks, flows and feels — from layout to the final styled detail." },
-  { slug: "tv", title: "Custom TV Consoles & Entertainment Units", img: tvConsoleProject, realPhoto: true, films: [films.marbleShowcase, films.finalTouches, films.blackMarbleSuite, films.houseTour], text: "Bespoke media walls in MDF and fine finishes, with fluted panels, concealed storage and integrated lighting." },
+  { slug: "tv", title: "Custom TV Consoles & Entertainment Units", img: tvConsoleProject, realPhoto: true, films: [films.marbleShowcase, films.finalTouches, films.houseTour], text: "Bespoke media walls in MDF and fine finishes, with fluted panels, concealed storage and integrated lighting." },
   { slug: "kitchen", title: "Modern Kitchen Designs", img: kitchenProject, realPhoto: true, text: "Fitted kitchens planned around how you cook and gather, finished with Turkish hardware and lasting surfaces." },
   { slug: "closet", title: "Walk-in Closets & Wardrobes", img: closet, text: "Wardrobes and dressing rooms with considered storage, lighting and a sense of quiet ceremony." },
   { slug: "living", title: "Living Room Furniture & Décor", img: combo, text: "Sofas, centre tables and curated décor composed into living rooms that invite you to stay." },
-  { slug: "furnishing", title: "Complete Home Furnishing", img: bedroom, text: "Every room furnished and styled as one coherent story — ready to move in and live beautifully." },
+  { slug: "furnishing", title: "Complete Home Furnishing", img: bedroom, films: [films.blackMarbleSuite], text: "Every room furnished and styled as one coherent story — ready to move in and live beautifully." },
 ];
 
 export type Category = "Living Rooms" | "TV Consoles" | "Kitchens" | "Walk-in Closets" | "Furniture" | "Complete Interior Transformations";
@@ -156,13 +156,13 @@ export const projects: Project[] = [
   {
     id: "the-black-marble-suite",
     title: "The Black Marble Suite",
-    tagline: "Drama on the wall. Calm in the room.",
-    category: "TV Consoles",
+    tagline: "Drama on the wall. Calm in every room.",
+    category: "Complete Interior Transformations",
     real: true,
     img: films.blackMarbleSuite.poster,
     films: [films.blackMarbleSuite],
-    text: "A veined black-marble media wall set under a glowing cove ceiling, paired with a matching bedroom suite: upholstered bed, statement headboard and gold-detailed bedside cabinets.",
-    highlights: ["Black-marble media wall", "LED cove ceiling", "Matching bedroom suite"],
+    text: "A whole-home finish that pairs a veined black-marble media wall under a glowing cove ceiling with a matching bedroom suite: upholstered bed, statement headboard, gold-detailed bedside cabinets and floor-to-ceiling drapery.",
+    highlights: ["Black-marble media wall", "Bespoke bedroom suite", "LED cove ceilings & drapery"],
   },
   {
     id: "home-tour",
