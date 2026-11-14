@@ -6,6 +6,13 @@ import combo from "@/assets/combo.jpg";
 import bedroom from "@/assets/bedroom.jpg";
 import kitchenProject from "@/assets/kitchen-project.jpg";
 import tvConsoleProject from "@/assets/tv-console-project.jpg";
+import ivoryFrame1 from "@/assets/tv/ivory-frame-1.jpg";
+import ivoryFrame2 from "@/assets/tv/ivory-frame-2.jpg";
+import ivoryFrame3 from "@/assets/tv/ivory-frame-3.jpg";
+import ivoryFrame4 from "@/assets/tv/ivory-frame-4.jpg";
+import champagneSmoke2 from "@/assets/tv/champagne-smoke-2.jpg";
+import linenHalo from "@/assets/tv/linen-halo.jpg";
+import goldenHour from "@/assets/tv/golden-hour.jpg";
 
 /**
  * Business contact details. Confirmed by client.
@@ -46,12 +53,70 @@ export const categories: ("All Projects" | Category)[] = [
   "All Projects", "Living Rooms", "TV Consoles", "Kitchens", "Walk-in Closets", "Furniture", "Complete Interior Transformations",
 ];
 
-export type Project = { id: string; title: string; category: Category; img: string; text: string; highlights: string[] };
+export type Project = {
+  id: string;
+  title: string;
+  /** Short catchy line shown under the title. */
+  tagline?: string;
+  category: Category;
+  /** Cover image. */
+  img: string;
+  /** All photos of this project, cover first. Defaults to [img]. */
+  gallery?: string[];
+  /** true = a real, completed La Maison Royale project (not placeholder imagery). */
+  real?: boolean;
+  text: string;
+  highlights: string[];
+};
 
-/** ILLUSTRATIVE PLACEHOLDERS — replace with real La Maison Royale project photos before launch. */
+/**
+ * Projects. Entries marked `real: true` are completed La Maison Royale work;
+ * the rest are ILLUSTRATIVE PLACEHOLDERS to replace with real project photos.
+ */
 export const projects: Project[] = [
+  {
+    id: "the-ivory-frame",
+    title: "The Ivory Frame",
+    tagline: "Light, framed.",
+    category: "TV Consoles",
+    real: true,
+    img: ivoryFrame1,
+    gallery: [ivoryFrame1, ivoryFrame2, ivoryFrame3, ivoryFrame4],
+    text: "A wall-to-wall ivory media wall with a recessed black-glass screen bay, a floating gloss console and LED light that traces every edge. Calm and architectural by day, pure cinema by night.",
+    highlights: ["Recessed black-glass screen bay", "Wall-to-wall floating console", "LED halo & under-lighting"],
+  },
+  {
+    id: "champagne-and-smoke",
+    title: "Champagne & Smoke",
+    tagline: "Gloss that glows. Glass that hides.",
+    category: "TV Consoles",
+    real: true,
+    img: tvConsoleProject,
+    gallery: [tvConsoleProject, champagneSmoke2],
+    text: "High-gloss champagne panels flanked by tall smoked-glass display towers, finished with a jet-black ledge and floating drawers. Storage that disappears, style that doesn't.",
+    highlights: ["High-gloss champagne panelling", "Smoked-glass display towers", "Floating handle-free drawers"],
+  },
+  {
+    id: "the-linen-halo",
+    title: "The Linen Halo",
+    tagline: "Soft texture. Floating light.",
+    category: "TV Consoles",
+    real: true,
+    img: linenHalo,
+    text: "A linen-textured frame that seems to hover off the wall on a warm LED glow, above a slim piano-black console. Refined, compact and made for intimate rooms.",
+    highlights: ["Linen-texture wall frame", "Backlit floating effect", "Piano-black gloss console"],
+  },
+  {
+    id: "golden-hour",
+    title: "Golden Hour",
+    tagline: "Your screen, set in gold.",
+    category: "TV Consoles",
+    real: true,
+    img: goldenHour,
+    text: "A screen set flush into mirror-gloss champagne panels, grounded by a black ledge and cream gloss storage that runs the full length of the room.",
+    highlights: ["Flush-recessed screen niche", "Mirror-gloss champagne panels", "Full-length gloss storage"],
+  },
   { id: "emerald-residence", title: "The Emerald Living Room", category: "Living Rooms", img: hero, text: "A calm living room anchored by deep green velvet, a marble centre table and a fluted walnut media wall.", highlights: ["Fluted walnut console", "Marble centre table", "Layered warm lighting"] },
-  { id: "noir-media-wall", title: "Noir Media Wall", category: "TV Consoles", img: tv, text: "A floating console against a stone-effect backdrop, framed by vertical slats and soft concealed LED.", highlights: ["Floating MDF console", "Concealed cable management", "LED under-lighting"] },
   { id: "forest-kitchen", title: "The Forest Kitchen", category: "Kitchens", img: kitchen, text: "Shaker-profile cabinetry in forest green with warm stone surfaces and brushed brass hardware.", highlights: ["Full-height storage", "Stone island", "Brass hardware"] },
   { id: "gilded-dressing-room", title: "Gilded Dressing Room", category: "Walk-in Closets", img: closet, text: "Glass-fronted wardrobes with champagne trim, an ivory island and lighting that glows like a boutique.", highlights: ["Glass-front wardrobes", "Central drawer island", "Integrated LED"] },
   { id: "soft-living-combo", title: "Soft Living Combination", category: "Furniture", img: combo, text: "A curved sofa, sculptural centre table and low walnut console styled as one harmonious set.", highlights: ["Sofa, table & console", "Neutral palette", "Styled artifacts"] },
@@ -66,3 +131,10 @@ export const navLinks = [
   { to: "/pricing", label: "Pricing" },
   { to: "/contact", label: "Contact Us" },
 ] as const;
+
+/** One project per category (first listed), real projects first — used for the home page portfolio grid. */
+export const featuredProjects: Project[] = categories
+  .filter((c): c is Category => c !== "All Projects")
+  .map((c) => projects.find((p) => p.category === c))
+  .filter((p): p is Project => Boolean(p))
+  .sort((a, b) => Number(Boolean(b.real)) - Number(Boolean(a.real)));

@@ -44,7 +44,7 @@ export function PageHero({ eyebrow, title, text, img }: { eyebrow: string; title
 export function IllustrativeNote({ className }: { className?: string }) {
   return (
     <p className={cn("text-xs italic text-muted-foreground", className)}>
-      Imagery shown is illustrative design inspiration. Photographs of completed La Maison Royale projects will replace it.
+      Some imagery shown is illustrative design inspiration and is being replaced with photographs of completed La Maison Royale projects.
     </p>
   );
 }

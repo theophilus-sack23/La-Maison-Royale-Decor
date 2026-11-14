@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
-import { images, projects, services, type Project } from "@/lib/site";
+import { featuredProjects, images, services, type Project } from "@/lib/site";
 import { IllustrativeNote, Reveal } from "@/components/site/Reveal";
 import { ProjectViewer } from "@/components/site/ProjectViewer";
 
@@ -90,13 +90,14 @@ function Home() {
           <IllustrativeNote className="mt-4" />
         </Reveal>
         <div className="mt-14 grid auto-rows-[260px] gap-5 md:grid-cols-12">
-          {projects.map((p, i) => (
+          {featuredProjects.map((p, i) => (
             <button key={p.id} onClick={() => setActive(p)} className={`group relative overflow-hidden text-left ${spans[i]}`}>
               <img src={p.img} alt={`${p.title} — ${p.category}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-transparent" />
               <div className="absolute bottom-0 p-6 text-ivory">
                 <p className="eyebrow text-gold">{p.category}</p>
                 <p className="mt-2 font-serif text-2xl md:text-3xl">{p.title}</p>
+                {p.tagline && <p className="mt-1 font-serif text-lg italic text-beige">{p.tagline}</p>}
                 <p className="mt-2 max-w-md text-sm text-ivory/0 transition-colors duration-500 group-hover:text-ivory/80">{p.text}</p>
                 <span className="eyebrow mt-3 inline-block text-ivory">View project →</span>
               </div>

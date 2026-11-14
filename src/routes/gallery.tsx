@@ -36,11 +36,13 @@ function Gallery() {
         <div className="mt-10 columns-1 gap-6 sm:columns-2 lg:columns-3">
           {list.map((p, i) => (
             <button key={p.id} onClick={() => setActive(p)} className="group mb-6 block w-full break-inside-avoid text-left animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <div className="overflow-hidden">
-                <img src={p.img} alt={`${p.title} — ${p.category}`} loading="lazy" className={cn("w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105", i % 3 === 1 ? "aspect-[3/4]" : "aspect-[4/3]")} />
+              <div className="relative overflow-hidden">
+                <img src={p.img} alt={`${p.title} — ${p.category}`} loading="lazy" className={cn("w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105", p.real || i % 3 === 1 ? "aspect-[3/4]" : "aspect-[4/3]")} />
+                {(p.gallery?.length ?? 1) > 1 && <span className="eyebrow absolute right-3 top-3 bg-ink/70 px-3 py-1.5 text-[0.55rem] text-ivory">{p.gallery!.length} photos</span>}
               </div>
               <p className="eyebrow mt-4 text-gold">{p.category}</p>
               <p className="mt-1 font-serif text-2xl">{p.title}</p>
+              {p.tagline && <p className="mt-1 text-sm italic text-muted-foreground">{p.tagline}</p>}
             </button>
           ))}
           {list.length === 0 && <p className="text-muted-foreground">Projects in this category are coming soon.</p>}
