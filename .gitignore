@@ -33,3 +33,6 @@ dist-ssr
 
 # Vercel
 .vercel
+
+# Raw source videos (too large for GitHub; compressed copies go in public/videos)
+/videos/

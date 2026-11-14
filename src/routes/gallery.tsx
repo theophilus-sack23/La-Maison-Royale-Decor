@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Play } from "lucide-react";
 import { useState } from "react";
 import { categories, images, projects, type Project } from "@/lib/site";
 import { IllustrativeNote, PageHero } from "@/components/site/Reveal";
@@ -39,6 +40,14 @@ function Gallery() {
               <div className="relative overflow-hidden">
                 <img src={p.img} alt={`${p.title} — ${p.category}`} loading="lazy" className="aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
                 {(p.gallery?.length ?? 1) > 1 && <span className="eyebrow absolute right-3 top-3 bg-ink/70 px-3 py-1.5 text-[0.55rem] text-ivory">{p.gallery!.length} photos</span>}
+                {p.films?.length ? (
+                  <>
+                    <span className="eyebrow absolute right-3 top-3 bg-ink/70 px-3 py-1.5 text-[0.55rem] text-ivory">Film</span>
+                    <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-ivory/70 bg-ink/30 text-ivory backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-gold group-hover:text-ink">
+                      <Play className="ml-1 h-6 w-6 fill-current" />
+                    </span>
+                  </>
+                ) : null}
               </div>
               <p className="eyebrow mt-4 text-gold">{p.category}</p>
               <p className="mt-1 font-serif text-2xl">{p.title}</p>

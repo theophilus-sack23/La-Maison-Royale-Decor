@@ -38,9 +38,22 @@ export function whatsappLink(message: string) {
 
 export const images = { hero, kitchen, closet, tv, combo, bedroom };
 
-export const services = [
+/** A short project film. Files live in public/videos (compressed 720p MP4 + poster frame). */
+export type Film = { src: string; poster: string; title: string };
+
+export const films = {
+  marbleShowcase: { src: "/videos/marble-showcase.mp4", poster: "/videos/marble-showcase.jpg", title: "The Marble Showcase" },
+  finalTouches: { src: "/videos/final-touches.mp4", poster: "/videos/final-touches.jpg", title: "Final Touches" },
+  blackMarbleSuite: { src: "/videos/black-marble-suite.mp4", poster: "/videos/black-marble-suite.jpg", title: "The Black Marble Suite" },
+  houseTour: { src: "/videos/house-tour.mp4", poster: "/videos/house-tour.jpg", title: "Home Tour" },
+} satisfies Record<string, Film>;
+
+/** Silent looping clip for the home page intro (no audio track, smaller file). */
+export const homeLoop = { src: "/videos/marble-showcase-loop.mp4", poster: "/videos/marble-showcase.jpg" };
+
+export const services: { slug: string; title: string; img: string; realPhoto?: boolean; films?: Film[]; text: string }[] = [
   { slug: "interior", title: "Interior Design & Space Transformation", img: hero, text: "Complete concepts that reshape how a room looks, flows and feels — from layout to the final styled detail." },
-  { slug: "tv", title: "Custom TV Consoles & Entertainment Units", img: tvConsoleProject, realPhoto: true, text: "Bespoke media walls in MDF and fine finishes, with fluted panels, concealed storage and integrated lighting." },
+  { slug: "tv", title: "Custom TV Consoles & Entertainment Units", img: tvConsoleProject, realPhoto: true, films: [films.marbleShowcase, films.finalTouches, films.blackMarbleSuite, films.houseTour], text: "Bespoke media walls in MDF and fine finishes, with fluted panels, concealed storage and integrated lighting." },
   { slug: "kitchen", title: "Modern Kitchen Designs", img: kitchenProject, realPhoto: true, text: "Fitted kitchens planned around how you cook and gather, finished with Turkish hardware and lasting surfaces." },
   { slug: "closet", title: "Walk-in Closets & Wardrobes", img: closet, text: "Wardrobes and dressing rooms with considered storage, lighting and a sense of quiet ceremony." },
   { slug: "living", title: "Living Room Furniture & Décor", img: combo, text: "Sofas, centre tables and curated décor composed into living rooms that invite you to stay." },
@@ -63,6 +76,8 @@ export type Project = {
   img: string;
   /** All photos of this project, cover first. Defaults to [img]. */
   gallery?: string[];
+  /** Project films, shown before the photos in the project viewer. */
+  films?: Film[];
   /** true = a real, completed La Maison Royale project (not placeholder imagery). */
   real?: boolean;
   text: string;
@@ -115,6 +130,50 @@ export const projects: Project[] = [
     img: goldenHour,
     text: "A screen set flush into mirror-gloss champagne panels, grounded by a black ledge and cream gloss storage that runs the full length of the room.",
     highlights: ["Flush-recessed screen niche", "Mirror-gloss champagne panels", "Full-length gloss storage"],
+  },
+  {
+    id: "the-marble-showcase",
+    title: "The Marble Showcase",
+    tagline: "Stone, light, and everything you love on display.",
+    category: "TV Consoles",
+    real: true,
+    img: films.marbleShowcase.poster,
+    films: [films.marbleShowcase],
+    text: "A marble-effect media wall flanked by glass display shelving lit from within, so every vase, book and keepsake glows. A long floating console keeps the floor clear and the room feeling open.",
+    highlights: ["Marble-effect wall panelling", "Lit glass display shelving", "Long floating console"],
+  },
+  {
+    id: "final-touches",
+    title: "Final Touches",
+    tagline: "Polished by hand, down to the last reflection.",
+    category: "TV Consoles",
+    real: true,
+    img: films.finalTouches.poster,
+    films: [films.finalTouches],
+    text: "Handover day on a backlit, mirror-framed media wall. Our team checks every edge, every light and every surface before a room is called finished.",
+    highlights: ["Backlit mirror frame", "Floating gloss console", "Hand-finished handover"],
+  },
+  {
+    id: "the-black-marble-suite",
+    title: "The Black Marble Suite",
+    tagline: "Drama on the wall. Calm in the room.",
+    category: "TV Consoles",
+    real: true,
+    img: films.blackMarbleSuite.poster,
+    films: [films.blackMarbleSuite],
+    text: "A veined black-marble media wall set under a glowing cove ceiling, paired with a matching bedroom suite: upholstered bed, statement headboard and gold-detailed bedside cabinets.",
+    highlights: ["Black-marble media wall", "LED cove ceiling", "Matching bedroom suite"],
+  },
+  {
+    id: "home-tour",
+    title: "Home Tour",
+    tagline: "Walk through a home we finished, room by room.",
+    category: "TV Consoles",
+    real: true,
+    img: films.houseTour.poster,
+    films: [films.houseTour],
+    text: "From the stairwell chandelier to the living room media wall and the bedroom, follow a complete home finished by La Maison Royale, with two framed, backlit TV walls along the way.",
+    highlights: ["Two backlit media walls", "Bedroom & dressing furniture", "Whole-home finishing"],
   },
   { id: "emerald-residence", title: "The Emerald Living Room", category: "Living Rooms", img: hero, text: "A calm living room anchored by deep green velvet, a marble centre table and a fluted walnut media wall.", highlights: ["Fluted walnut console", "Marble centre table", "Layered warm lighting"] },
   { id: "forest-kitchen", title: "The Forest Kitchen", category: "Kitchens", img: kitchen, text: "Shaker-profile cabinetry in forest green with warm stone surfaces and brushed brass hardware.", highlights: ["Full-height storage", "Stone island", "Brass hardware"] },

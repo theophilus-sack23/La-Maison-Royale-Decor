@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
-import { featuredProjects, images, services, type Project } from "@/lib/site";
+import { featuredProjects, homeLoop, images, projects, services, type Project } from "@/lib/site";
+import { AmbientVideo } from "@/components/site/Film";
 import { IllustrativeNote, Reveal } from "@/components/site/Reveal";
 import { ProjectViewer } from "@/components/site/ProjectViewer";
 
@@ -51,7 +52,10 @@ function Home() {
           <Link to="/about" className="eyebrow mt-10 inline-flex items-center gap-2 border-b border-foreground pb-1 hover:text-primary">Our story <ArrowUpRight className="h-4 w-4" /></Link>
         </Reveal>
         <Reveal delay={150} className="relative">
-          <img src={images.tv} alt="Custom floating TV console with fluted panels" loading="lazy" className="aspect-[4/5] w-full object-cover" />
+          <div className="relative">
+            <AmbientVideo src={homeLoop.src} poster={homeLoop.poster} label="Marble-effect TV wall with lit glass display shelving by La Maison Royale" className="aspect-[4/5] w-full bg-ink object-cover" />
+            <button onClick={() => setActive(projects.find((p) => p.id === "the-marble-showcase") ?? null)} className="eyebrow absolute right-4 top-4 bg-ink/50 px-3 py-2 text-[0.55rem] text-ivory backdrop-blur-sm transition-colors hover:bg-gold hover:text-ink">Recent project · The Marble Showcase</button>
+          </div>
           <img src={images.combo} alt="Sofa, centre table and console combination" loading="lazy" className="absolute -bottom-10 -left-10 hidden w-1/2 border-8 border-background object-cover md:block" />
         </Reveal>
       </section>
