@@ -4,6 +4,14 @@ import { useState } from "react";
 import { images, projects, services, type Project } from "@/lib/site";
 import { IllustrativeNote, Reveal } from "@/components/site/Reveal";
 import { ProjectViewer } from "@/components/site/ProjectViewer";
+import kitchenProject from "@/assets/kitchen-project.jpg";
+import tvConsoleProject from "@/assets/tv-console-project.jpg";
+
+/** Real project photos used on the home page service cards. */
+const homeServiceImages: Record<string, string> = {
+  kitchen: kitchenProject,
+  tv: tvConsoleProject,
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -70,7 +78,7 @@ function Home() {
             {services.map((s, i) => (
               <Reveal key={s.slug} delay={(i % 3) * 120}>
                 <Link to="/services" hash={s.slug} className="group block">
-                  <div className="overflow-hidden"><img src={s.img} alt={s.title} loading="lazy" className="aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" /></div>
+                  <div className="overflow-hidden"><img src={homeServiceImages[s.slug] ?? s.img} alt={s.title} loading="lazy" className="aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" /></div>
                   <p className="eyebrow mt-6 text-gold">0{i + 1}</p>
                   <h3 className="mt-2 text-2xl">{s.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
