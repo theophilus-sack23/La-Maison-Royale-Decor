@@ -53,8 +53,8 @@ function Contact() {
         <aside className="space-y-8">
           <div><p className="eyebrow text-gold">Studio</p><p className="mt-2 font-serif text-2xl">{CONTACT.location}</p></div>
           <div><p className="eyebrow text-gold">Instagram</p><a href={CONTACT.instagram} target="_blank" rel="noreferrer" className="mt-2 block font-serif text-2xl hover:text-primary">{CONTACT.instagramHandle}</a></div>
-          {CONTACT.phone && <div><p className="eyebrow text-gold">Phone</p><a href={`tel:+${CONTACT.phone}`} className="mt-2 block font-serif text-2xl">+{CONTACT.phone}</a></div>}
-          {CONTACT.email && <div><p className="eyebrow text-gold">Email</p><a href={`mailto:${CONTACT.email}`} className="mt-2 block font-serif text-2xl">{CONTACT.email}</a></div>}
+          {CONTACT.phones.length > 0 && <div><p className="eyebrow text-gold">Call</p>{CONTACT.phones.map((p) => <a key={p.tel} href={`tel:+${p.tel}`} className="mt-2 block font-serif text-2xl">{p.display}</a>)}</div>}
+          {CONTACT.email && <div><p className="eyebrow text-gold">Email</p><a href={`mailto:${CONTACT.email}`} className="mt-2 block break-all font-serif text-2xl">{CONTACT.email}</a></div>}
           {wa && <a href={wa} target="_blank" rel="noreferrer" className="eyebrow inline-block bg-primary px-6 py-4 text-primary-foreground">Chat on WhatsApp</a>}
         </aside>
 

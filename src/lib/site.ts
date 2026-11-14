@@ -6,15 +6,19 @@ import combo from "@/assets/combo.jpg";
 import bedroom from "@/assets/bedroom.jpg";
 
 /**
- * Business contact details. PENDING CLIENT CONFIRMATION — leave null until verified.
+ * Business contact details. Confirmed by client.
  * Phone/WhatsApp must be in international format without "+", e.g. "233XXXXXXXXX".
  */
 export const CONTACT = {
   instagram: "https://www.instagram.com/lamaisonroyaledecor",
   instagramHandle: "@lamaisonroyaledecor",
-  whatsapp: null as string | null,
-  phone: null as string | null,
-  email: null as string | null,
+  whatsapp: "233203841980" as string | null,
+  /** Call lines: tel = international format without "+", display = how it is shown on the site. */
+  phones: [
+    { tel: "233249774083", display: "024 977 4083" },
+    { tel: "233591110768", display: "059 111 0768" },
+  ],
+  email: "maisonroyaledecor@gmail.com" as string | null,
   location: "11 Golden Street, Accra, Ghana",
 };
 

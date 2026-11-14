@@ -64,6 +64,8 @@ const localBusiness = {
   "@type": "HomeAndConstructionBusiness",
   name: "La Maison Royale Décor",
   description: "Interior design, custom furniture and complete home furnishing in Accra, Ghana.",
+  telephone: "+233249774083",
+  email: "maisonroyaledecor@gmail.com",
   address: { "@type": "PostalAddress", streetAddress: "11 Golden Street", addressLocality: "Accra", addressCountry: "GH" },
   sameAs: ["https://www.instagram.com/lamaisonroyaledecor"],
 };

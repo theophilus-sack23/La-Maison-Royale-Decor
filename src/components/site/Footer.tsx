@@ -26,8 +26,8 @@ export function Footer() {
           <p className="eyebrow text-gold">Connect</p>
           <ul className="mt-5 space-y-2 text-sm">
             <li><a href={CONTACT.instagram} target="_blank" rel="noreferrer" className="hover:text-gold">Instagram {CONTACT.instagramHandle}</a></li>
-            {wa && <li><a href={wa} target="_blank" rel="noreferrer" className="hover:text-gold">WhatsApp</a></li>}
-            {CONTACT.phone && <li><a href={`tel:+${CONTACT.phone}`} className="hover:text-gold">+{CONTACT.phone}</a></li>}
+            {wa && <li><a href={wa} target="_blank" rel="noreferrer" className="hover:text-gold">WhatsApp 020 384 1980</a></li>}
+            {CONTACT.phones.map((p) => <li key={p.tel}><a href={`tel:+${p.tel}`} className="hover:text-gold">{p.display}</a></li>)}
             {CONTACT.email && <li><a href={`mailto:${CONTACT.email}`} className="hover:text-gold">{CONTACT.email}</a></li>}
             <li>{CONTACT.location}</li>
           </ul>
