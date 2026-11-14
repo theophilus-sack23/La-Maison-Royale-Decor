@@ -7,8 +7,7 @@ export function Footer() {
     <footer className="bg-ink text-ivory/80">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-4 md:px-10">
         <div className="md:col-span-1">
-          <p className="font-serif text-3xl text-ivory">La Maison Royale</p>
-          <p className="eyebrow mt-1 text-[0.55rem] text-gold">Décor · Accra</p>
+          <img src="/logo-light.png" alt="La Maison Royale Décor" width={942} height={857} loading="lazy" className="h-28 w-auto" />
           <p className="mt-6 text-sm leading-relaxed">Interior design, bespoke furniture and complete space transformation. Designing Spaces. Defining Living.</p>
         </div>
         <div>

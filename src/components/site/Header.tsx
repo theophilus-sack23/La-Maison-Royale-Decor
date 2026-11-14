@@ -4,12 +4,16 @@ import { useEffect, useState } from "react";
 import { navLinks } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-export function Logo({ light }: { light?: boolean }) {
-  // TODO: replace with the supplied La Maison Royale logo file.
+export function Logo({ light, compact }: { light?: boolean; compact?: boolean }) {
   return (
-    <Link to="/" className={cn("flex flex-col leading-none", light ? "text-ivory" : "text-foreground")} aria-label="La Maison Royale Décor home">
-      <span className="font-serif text-2xl tracking-wide">La Maison Royale</span>
-      <span className="eyebrow mt-1 text-[0.55rem] text-gold">Décor · Accra</span>
+    <Link to="/" className="block shrink-0" aria-label="La Maison Royale Décor home">
+      <img
+        src={light ? "/logo-light.png" : "/logo.png"}
+        alt="La Maison Royale Décor"
+        width={942}
+        height={857}
+        className={cn("w-auto transition-all duration-500", compact ? "h-12" : "h-16 md:h-20")}
+      />
     </Link>
   );
 }
@@ -31,7 +35,7 @@ export function Header() {
   return (
     <header className={cn("fixed inset-x-0 top-0 z-50 transition-all duration-500", solid ? "bg-background/95 py-3 shadow-sm backdrop-blur" : "bg-transparent py-6")}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10">
-        <Logo light={!solid} />
+        <Logo light={!solid} compact={solid} />
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Main">
           {navLinks.map((l) => (
             <Link key={l.to} to={l.to} className={cn("eyebrow text-[0.65rem] transition-colors hover:text-gold", solid ? "text-foreground" : "text-ivory")} activeProps={{ className: "!text-gold" }} activeOptions={{ exact: true }}>
