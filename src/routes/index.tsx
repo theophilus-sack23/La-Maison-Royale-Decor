@@ -56,7 +56,6 @@ function Home() {
             <AmbientVideo src={homeLoop.src} poster={homeLoop.poster} label="Marble-effect TV wall with lit glass display shelving by La Maison Royale" className="aspect-[4/5] w-full bg-ink object-cover" />
             <button onClick={() => setActive(projects.find((p) => p.id === "the-marble-showcase") ?? null)} className="eyebrow absolute right-4 top-4 bg-ink/50 px-3 py-2 text-[0.55rem] text-ivory backdrop-blur-sm transition-colors hover:bg-gold hover:text-ink">Recent project · The Marble Showcase</button>
           </div>
-          <img src={images.combo} alt="Sofa, centre table and console combination" loading="lazy" className="absolute -bottom-10 -left-10 hidden w-1/2 border-8 border-background object-cover md:block" />
         </Reveal>
       </section>
 
