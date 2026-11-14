@@ -23,7 +23,7 @@ function Services() {
         {services.map((s, i) => (
           <section key={s.slug} id={s.slug} className="grid scroll-mt-28 items-center gap-12 border-b py-20 md:grid-cols-2">
             <Reveal className={i % 2 ? "md:order-2" : ""}>
-              <img src={s.img} alt={s.title} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+              <img src={s.img} alt={s.title} loading="lazy" className={"realPhoto" in s ? "mx-auto aspect-[3/4] w-full max-w-md object-cover" : "aspect-[4/3] w-full object-cover"} />
             </Reveal>
             <Reveal delay={120}>
               <p className="eyebrow text-gold">0{i + 1}</p>

@@ -4,6 +4,8 @@ import closet from "@/assets/closet.jpg";
 import tv from "@/assets/tv-console.jpg";
 import combo from "@/assets/combo.jpg";
 import bedroom from "@/assets/bedroom.jpg";
+import kitchenProject from "@/assets/kitchen-project.jpg";
+import tvConsoleProject from "@/assets/tv-console-project.jpg";
 
 /**
  * Business contact details. Confirmed by client.
@@ -31,8 +33,8 @@ export const images = { hero, kitchen, closet, tv, combo, bedroom };
 
 export const services = [
   { slug: "interior", title: "Interior Design & Space Transformation", img: hero, text: "Complete concepts that reshape how a room looks, flows and feels — from layout to the final styled detail." },
-  { slug: "tv", title: "Custom TV Consoles & Entertainment Units", img: tv, text: "Bespoke media walls in MDF and fine finishes, with fluted panels, concealed storage and integrated lighting." },
-  { slug: "kitchen", title: "Modern Kitchen Designs", img: kitchen, text: "Fitted kitchens planned around how you cook and gather, finished with Turkish hardware and lasting surfaces." },
+  { slug: "tv", title: "Custom TV Consoles & Entertainment Units", img: tvConsoleProject, realPhoto: true, text: "Bespoke media walls in MDF and fine finishes, with fluted panels, concealed storage and integrated lighting." },
+  { slug: "kitchen", title: "Modern Kitchen Designs", img: kitchenProject, realPhoto: true, text: "Fitted kitchens planned around how you cook and gather, finished with Turkish hardware and lasting surfaces." },
   { slug: "closet", title: "Walk-in Closets & Wardrobes", img: closet, text: "Wardrobes and dressing rooms with considered storage, lighting and a sense of quiet ceremony." },
   { slug: "living", title: "Living Room Furniture & Décor", img: combo, text: "Sofas, centre tables and curated décor composed into living rooms that invite you to stay." },
   { slug: "furnishing", title: "Complete Home Furnishing", img: bedroom, text: "Every room furnished and styled as one coherent story — ready to move in and live beautifully." },
